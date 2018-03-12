@@ -1,0 +1,66 @@
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\ApplicationInsights.config
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\csc.exe
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\System.Collections.Immutable.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\vbc.exe
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\VBCSCompiler.exe
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\roslyn\VBCSCompiler.exe.config
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\WebServiceBoulot.dll.config
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\WebServiceBoulot.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\WebServiceBoulot.pdb
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.Web.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.WindowsServer.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.ApplicationInsights.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.Web.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.WindowsServer.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.ApplicationInsights.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\obj\Debug\WebServiceBoulot.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\obj\Debug\WebServiceBoulot.pdb
+c:\users\lenovo\documents\visual studio 2015\Projects\WebServiceBoulot\WebServiceBoulot\obj\Debug\WebServiceBoulot.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\ApplicationInsights.config
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\csc.exe
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\vbc.exe
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\VBCSCompiler.exe
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\WebServiceBoulot.dll.config
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\WebServiceBoulot.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\WebServiceBoulot.pdb
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.Web.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.ApplicationInsights.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.Web.xml
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.ApplicationInsights.xml
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\obj\Debug\WebServiceBoulot.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\obj\Debug\WebServiceBoulot.dll
+C:\Users\lenovo\Documents\.git\TER\WebServiceBoulot\WebServiceBoulot\obj\Debug\WebServiceBoulot.pdb
