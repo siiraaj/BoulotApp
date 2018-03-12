@@ -1,1 +1,5 @@
 test
+
+
+<info nom="difficulté" value="Très facile"/>
+
