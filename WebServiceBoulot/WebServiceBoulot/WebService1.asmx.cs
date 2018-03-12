@@ -26,6 +26,7 @@ namespace WebServiceBoulot
             e.id = 2;
             e.nom = "siraj";
             e.mail = "siiraaj@yahoo.fr";
+            e.telephone = 099987;
             return e;
         }
     }

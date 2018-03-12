@@ -10,5 +10,6 @@ namespace WebServiceBoulot
         public int id;
         public string nom;
         public string mail;
+        public int telephone;
     }
 }
