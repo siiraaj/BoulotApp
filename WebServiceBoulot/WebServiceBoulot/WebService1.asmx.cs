@@ -23,10 +23,12 @@ namespace WebServiceBoulot
         public Employe GetEmploye()
         {
             Employe e = new Employe();
-            e.id = 2;
+            //e.id = 2;
             e.nom = "siraj";
-            e.mail = "siiraaj@yahoo.fr";
-            e.telephone = 099987;
+            e.phone = "siiraaj@yahoo.fr";
+            e.profession = "plombier";
+            e.ville = "Marseille";
+
             return e;
         }
     }
