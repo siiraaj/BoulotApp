@@ -46,8 +46,6 @@ namespace WebServiceBoulot
             e.phone = "siiraaj@yahoo.fr";
             e.profession = "plombier";
             e.ville = "Marseille";
-
-
             return ser.Serialize(e);
         }
     }
