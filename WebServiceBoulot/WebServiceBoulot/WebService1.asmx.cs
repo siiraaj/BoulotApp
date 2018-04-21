@@ -49,10 +49,7 @@ namespace WebServiceBoulot
             e.phone = "siiraaj@yahoo.fr";
             e.profession = "plombier";
             e.ville = "Marseille";
-
             return e;
-
-
         }
 
         [WebMethod(MessageName = "GetEmployeeDB", Description = "cette methode renvoie dee doneees sous format Json from the database ")]
@@ -83,25 +80,19 @@ namespace WebServiceBoulot
                             ville = dr["ville"].ToString(),
                             phone = dr["phone"].ToString(),
                             profession = dr["profession"].ToString()
-
-
                         };
                         contactslist.Add(e);
                     }
                     dr.Close();
-
                 }
             }
             catch (SqlException ex)
-            {
-
-            }
+            {}
             finally
             {
                 conn.Close();
             }
             JavaScriptSerializer ser = new JavaScriptSerializer();
-
             return ser.Serialize(contactslist);
         }
 
