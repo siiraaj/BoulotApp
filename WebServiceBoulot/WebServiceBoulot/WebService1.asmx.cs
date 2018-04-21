@@ -214,6 +214,24 @@ namespace WebServiceBoulot
         }
         /*************************************************************************************************************/
 
+        [WebMethod(MessageName = "login", Description = "cette function permet de connecte un employe(les message d'erreur doi etre geree a l'application android)")]
+        public DataTable login(string tel, string pwd)
+        {
+            //les message d'erreur doi etre geree a l'application android
+            SqlConnection connection = new SqlConnection("Data Source = 213.246.49.103; Initial Catalog = ajahot127969com28897_WebServiceTest; User ID = ajahot127969com28897_sirajTest; Password = 1imOk92% ");
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM employer where TEL_EMP=@tel and PASSWORD=@pwd");
+            cmd.Parameters.AddWithValue("@tel", tel);
+            cmd.Parameters.AddWithValue("@pwd", MD5Hash(pwd));
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = connection;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            dt.TableName = "employe";
+            sda.Fill(dt);
+            return dt;
+        }
+
         [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
 
