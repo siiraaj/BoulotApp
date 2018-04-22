@@ -224,13 +224,14 @@ namespace WebServiceBoulot
         }
 
         /**************************************************************************************************************/
+        /*****************************************partie recuperation password*********************************************************/
 
         [WebMethod(MessageName = "getQuestion")]
         public string getQuestion(string tel)
         {
             try
             {
-                SqlConnection connection = new SqlConnection(DBConnection.ConnectionString);
+                SqlConnection connection = new SqlConnection("Data Source = 213.246.49.103; Initial Catalog = ajahot127969com28897_WebServiceTest; User ID = ajahot127969com28897_sirajTest; Password = 1imOk92% ");
                 connection.Open();
                 string requete = "SELECT QUESTION FROM employer where TEL_EMP=" + tel;
                 SqlCommand cmd = new SqlCommand(requete, connection);
@@ -242,6 +243,46 @@ namespace WebServiceBoulot
             {
                 return "aucune";
             }
+        }
+
+        [WebMethod(MessageName = "Valide_answer")]
+        public string Valide_answer(string tel, string question, string answer)
+        {
+            SqlConnection connection = new SqlConnection("Data Source = 213.246.49.103; Initial Catalog = ajahot127969com28897_WebServiceTest; User ID = ajahot127969com28897_sirajTest; Password = 1imOk92% ");
+            connection.Open();
+            string requete = "SELECT count(*) FROM employer where TEL_EMP=@tel and QUESTION=@question and INDICE=@answer";
+            SqlCommand cmd = new SqlCommand(requete, connection);
+            cmd.Parameters.AddWithValue("@tel", tel);
+            cmd.Parameters.AddWithValue("@question", question);
+            cmd.Parameters.AddWithValue("@answer", answer);
+            int nb = Int32.Parse(cmd.ExecuteScalar().ToString());
+            connection.Close();
+            if (nb == 0)
+            {
+                return "echec";
+            }
+            else
+            {
+                return "succes";
+            }
+        }
+
+        [WebMethod(MessageName = "setPassword")]
+        public string setPassword(string tel, string password, string Comfirmpassword)
+        {
+            if (password != Comfirmpassword)
+            {
+                return "password n'est pas identique";
+            }
+            SqlConnection connection = new SqlConnection("Data Source = 213.246.49.103; Initial Catalog = ajahot127969com28897_WebServiceTest; User ID = ajahot127969com28897_sirajTest; Password = 1imOk92% ");
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "UPDATE employer SET PASSWORD=@password WHERE ID_EMPLOYER=@id";
+            command.Parameters.AddWithValue("@id", getID_emp(tel));
+            command.Parameters.AddWithValue("@password", MD5Hash(password));
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return "succes";
         }
 
         [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
