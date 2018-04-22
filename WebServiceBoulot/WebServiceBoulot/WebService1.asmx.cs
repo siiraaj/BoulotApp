@@ -223,6 +223,27 @@ namespace WebServiceBoulot
             return dt;
         }
 
+        /**************************************************************************************************************/
+
+        [WebMethod(MessageName = "getQuestion")]
+        public string getQuestion(string tel)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(DBConnection.ConnectionString);
+                connection.Open();
+                string requete = "SELECT QUESTION FROM employer where TEL_EMP=" + tel;
+                SqlCommand cmd = new SqlCommand(requete, connection);
+                string question = cmd.ExecuteScalar().ToString();
+                connection.Close();
+                return question;
+            }
+            catch (Exception e)
+            {
+                return "aucune";
+            }
+        }
+
         [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
 
