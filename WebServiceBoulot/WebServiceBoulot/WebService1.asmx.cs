@@ -222,6 +222,22 @@ namespace WebServiceBoulot
             sda.Fill(dt);
             return dt;
         }
+        /*************************************************recherche par ville et service***************************************************/
+        [WebMethod(MessageName = "recherche")]
+        public DataTable recherche(int id_ville, int id_service)
+        {
+            SqlConnection con = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand cmd = new SqlCommand("SELECT employer.ID_EMPLOYER,NOM_EMP,PRENOM_EMP,TEL_EMP,IMAGE FROM employer,service,fournir where employer.ID_EMPLOYER=fournir.ID_EMPLOYER and service.ID_SERVICE=fournir.ID_SERVICE and service.ID_SERVICE=@id_service and ID_VILLE=@id_ville");
+            cmd.Parameters.AddWithValue("@id_service", id_service);
+            cmd.Parameters.AddWithValue("@id_ville", id_ville);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = con;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            dt.TableName = "employes";
+            sda.Fill(dt);
+            return dt;
+        }
 
         [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
