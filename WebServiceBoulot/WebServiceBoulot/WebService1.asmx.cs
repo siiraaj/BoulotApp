@@ -238,7 +238,19 @@ namespace WebServiceBoulot
             sda.Fill(dt);
             return dt;
         }
-
+        [WebMethod(MessageName = "setDisponibilite", Description = "cette function permet changer l'etat de l'employe")]
+        public string setDisponibilite(int id, bool disp)
+        {
+            SqlConnection connection = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "UPDATE employer SET dispo=@disp WHERE ID_EMPLOYER=@id";
+            command.Parameters.AddWithValue("?id", id);
+            command.Parameters.AddWithValue("?disp", disp);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return "succes";
+        }
         /**************************************************************************************************************/
         /*****************************************partie recuperation password*********************************************************/
 
