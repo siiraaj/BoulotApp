@@ -300,6 +300,62 @@ namespace WebServiceBoulot
             connection.Close();
             return "succes";
         }
+        /******************************************************************************************************************************/
+
+        /******************************************partie affichage des services et employes*******************************************************/
+        [WebMethod(MessageName = "getAllServices")]
+        public DataTable getAllServices()
+        {
+            SqlConnection con = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM service");
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = con;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            dt.TableName = "services";
+            sda.Fill(dt);
+            return dt;
+        }
+        [WebMethod(MessageName = "getAllEmployes")]
+        public DataTable getAllEmployes(int id_services)
+        {
+            SqlConnection con = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand cmd = new SqlCommand("select employer.ID_EMPLOYER,NOM_EMP,PRENOM_EMP,IMAGE,NOM_VILLEE,NOM_SERVICE,TEL_EMP,DISPO from service,employer,fournir,ville where fournir.ID_EMPLOYER=employer.ID_EMPLOYER and fournir.ID_SERVICE=service.ID_SERVICE and employer.ID_VILLE=ville.ID_VILLE and service.ID_SERVICE=@id_service");
+            cmd.Parameters.AddWithValue("@id_service", id_services);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = con;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            dt.TableName = "Employes";
+            sda.Fill(dt);
+            return dt;
+        }
+        [WebMethod(MessageName = "getAllEmployesSerch")]
+        public DataTable getAllEmployesSerch(string nom, int id_services)
+        {
+            SqlConnection con = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand cmd = new SqlCommand("select employer.ID_EMPLOYER,NOM_EMP,PRENOM_EMP,IMAGE,NOM_VILLEE,NOM_SERVICE,TEL_EMP,DISPO from service,employer,fournir,ville where fournir.ID_EMPLOYER=employer.ID_EMPLOYER and fournir.ID_SERVICE=service.ID_SERVICE and employer.ID_VILLE=ville.ID_VILLE and service.ID_SERVICE=@id_service and ( NOM_EMP like('" + nom + "%') or PRENOM_EMP like('" + nom + "%') )");
+            cmd.Parameters.AddWithValue("@id_service", id_services);
+
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = con;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            dt.TableName = "Employes";
+            sda.Fill(dt);
+            return dt;
+        }
+        [WebMethod(MessageName = "SCORE")]
+        public float SCORE(int id_emp)
+        {
+            SqlConnection connection = new SqlConnection(DBConnection.ConnectionString);
+            connection.Open();
+            string requete = "select isnull(AVG(SCORE),0)from consulte where ID_EMPLOYER=" + id_emp;
+            SqlCommand cmd = new SqlCommand(requete, connection);
+            float score = float.Parse(cmd.ExecuteScalar().ToString());
+            connection.Close();
+            return score;
+        }
 
         [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
