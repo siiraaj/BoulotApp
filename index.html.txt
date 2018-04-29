@@ -1,9 +1,0 @@
-test
-
-
-<info nom="difficulté" value="Très facile"/>
-
-
-derniere test
-
-tesssssssssssttt
