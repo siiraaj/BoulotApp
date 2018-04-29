@@ -1,0 +1,12 @@
+Boulot.LoginActivity, Boulot;md59ea80166094cb9e443c995df2b8b8b72.LoginActivity
+Boulot.LoginActivity, Boulot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59ea80166094cb9e443c995df2b8b8b72.LoginActivity
+Boulot.LoginActivity;md59ea80166094cb9e443c995df2b8b8b72.LoginActivity
+boulot.LoginActivity;md59ea80166094cb9e443c995df2b8b8b72.LoginActivity
+Boulot.MainActivity, Boulot;md59ea80166094cb9e443c995df2b8b8b72.MainActivity
+Boulot.MainActivity, Boulot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59ea80166094cb9e443c995df2b8b8b72.MainActivity
+Boulot.MainActivity;md59ea80166094cb9e443c995df2b8b8b72.MainActivity
+boulot.MainActivity;md59ea80166094cb9e443c995df2b8b8b72.MainActivity
+Boulot.ProfilActivity, Boulot;md59ea80166094cb9e443c995df2b8b8b72.ProfilActivity
+Boulot.ProfilActivity, Boulot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59ea80166094cb9e443c995df2b8b8b72.ProfilActivity
+Boulot.ProfilActivity;md59ea80166094cb9e443c995df2b8b8b72.ProfilActivity
+boulot.ProfilActivity;md59ea80166094cb9e443c995df2b8b8b72.ProfilActivity
