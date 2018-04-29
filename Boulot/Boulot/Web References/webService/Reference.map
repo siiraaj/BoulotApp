@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://siiraaj1-001-site1.itempurl.com/h21WebService1.asmx?wsdl" filename="h21WebService1.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://siiraaj1-001-site1.itempurl.com/h21WebService1.asmx?disco" filename="h21WebService1.disco" />
+  </Results>
+</DiscoveryClientResultsFile>
