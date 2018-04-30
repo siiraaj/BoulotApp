@@ -369,6 +369,79 @@ namespace WebServiceBoulot
             return score;
         }
 
+
+        /*****************************************************************************************************************************************/
+
+        /******************************************************partie review**************************************************************/
+        [WebMethod(MessageName = "review")]
+        public string review(int id_emp, string mail, float score)
+        {
+            int id_client;
+            if (validate_mail_format(mail) == false)
+            {
+                return "Adresse e-mail incorrecte, verifier votre email";
+            }
+            if (verifier_mail(mail) == 1)
+            {
+                id_client = getIdCLient(mail);
+            }
+            else
+            {
+                addClient(mail);
+                id_client = getIdCLient(mail);
+            }
+            SqlConnection connection = new SqlConnection("Data Source = 213.246.49.103; Initial Catalog = ajahot127969com28897_WebServiceTest; User ID = ajahot127969com28897_sirajTest; Password = 1imOk92%");
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "INSERT INTO consulte (ID_CLT,ID_EMPLOYER,SCORE,DATE,COMMENTAIRE) VALUES (@id_clt,@id_emp,@score,@date,@commentaire)";
+            command.Parameters.AddWithValue("@id_clt", id_client);
+            command.Parameters.AddWithValue("@id_emp", id_emp);
+            command.Parameters.AddWithValue("@score", score);
+            command.Parameters.AddWithValue("@date", DateTime.Now);
+            command.Parameters.AddWithValue("@commentaire", "good job");
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return "sucess";
+        }
+        public bool validate_mail_format(string mail)
+        {
+            Regex myRegex = new Regex(@"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+            return myRegex.IsMatch(mail);
+
+        }
+        public void addClient(string email)
+        {
+            SqlConnection connection = new SqlConnection("Data Source = 213.246.49.103; Initial Catalog = ajahot127969com28897_WebServiceTest; User ID = ajahot127969com28897_sirajTest; Password = 1imOk92%");
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "INSERT INTO client (EMAIL_CLT) VALUES (@email)";
+            command.Parameters.AddWithValue("@email", email);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+
+        }
+        public int verifier_mail(string email)
+        {
+            SqlConnection connection = new SqlConnection("Data Source = 213.246.49.103; Initial Catalog = ajahot127969com28897_WebServiceTest; User ID = ajahot127969com28897_sirajTest; Password = 1imOk92%");
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT count(*) FROM client where EMAIL_CLT=@mail";
+            command.Parameters.AddWithValue("@mail", email);
+            connection.Open();
+            int nb = Int32.Parse(command.ExecuteScalar().ToString());
+            connection.Close();
+            return nb;//si le resultat est 0 ok 
+        }
+        public int getIdCLient(string mail)
+        {
+            SqlConnection connection = new SqlConnection(DBConnection.ConnectionString);
+            connection.Open();
+            string requete = "SELECT ID_CLT FROM client where EMAIL_CLT='" + mail + "'";
+            SqlCommand cmd = new SqlCommand(requete, connection);
+            int nb = Int32.Parse(cmd.ExecuteScalar().ToString());
+            connection.Close();
+            return nb;
+        }
+
         [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
 
