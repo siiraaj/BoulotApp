@@ -445,6 +445,60 @@ namespace WebServiceBoulot
         [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
 
+ /**********************************************************************************************************************************/
+
+        /************************************************************partie galerie*********************************************************/
+        [WebMethod(MessageName = "uploadGalerie")]
+        public string uploadGalerie(string[] galerieUrl, int id_emp, int service)
+        {
+            for (int i = 0; i < galerieUrl.Length; i++)
+            {
+                uploadPict(galerieUrl[i], id_emp, service);
+                saveGalerie_DB(galerieUrl[i], id_emp, service);
+            }
+            return "succes";
+        }
+        [WebMethod(MessageName = "uploadImageGalerie")]
+        public void uploadPict(string source, int emp_id, int service_id)
+        {
+            String ftpurl = "ftp://ecinemaroc.co.nf/" + emp_id + "_" + service_id + "_" + Path.GetFileName(source);
+            String ftpusername = "2052696_bricole";
+            String ftppassword = "saber123**";
+            using (WebClient client = new WebClient())
+            {
+                client.Credentials = new NetworkCredential(ftpusername, ftppassword);
+                client.UploadFile(ftpurl, "STOR", source);
+            }
+        }
+        public string saveGalerie_DB(string source, int emp_id, int service_id)
+        {
+            SqlConnection connection = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "INSERT INTO galerie(ID_SERVICE, IMAGES, ID_EMPLOYER) VALUES (@service_id,@image,@employe_id)";
+            command.Parameters.AddWithValue("@service_id", service_id);
+            command.Parameters.AddWithValue("@image", "ftp://2052696_bricole:saber123**@ecinemaroc.co.nf/" + emp_id + "_" + service_id + "_" + Path.GetFileName(source));
+            command.Parameters.AddWithValue("@employe_id", emp_id);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return "succes";
+        }
+        [WebMethod(MessageName = "get_galerie")]
+        public DataTable get_galerie(int id_employe, int id_service)
+        {
+            SqlConnection con = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand cmd = new SqlCommand("SELECT IMAGES from galerie where ID_EMPLOYER=@id_employer and ID_SERVICE=id_service");
+            cmd.Parameters.AddWithValue("@id_service", id_service);
+            cmd.Parameters.AddWithValue("@id_employer", id_employe);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = con;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            dt.TableName = "employes";
+            sda.Fill(dt);
+            return dt;
+        }
+        
         public string GetEmployeJson()
         {
             JavaScriptSerializer ser = new JavaScriptSerializer();
