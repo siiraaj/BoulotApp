@@ -442,10 +442,8 @@ namespace WebServiceBoulot
             return nb;
         }
 
-        [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
-
- /**********************************************************************************************************************************/
+        
+        /**********************************************************************************************************************************/
 
         /************************************************************partie galerie*********************************************************/
         [WebMethod(MessageName = "uploadGalerie")]
@@ -498,7 +496,81 @@ namespace WebServiceBoulot
             sda.Fill(dt);
             return dt;
         }
-        
+        /**********************************************************************************************************************************/
+
+        /*****************************************************partie de modification******************************************************/
+        [WebMethod(MessageName = "updateProfile")]
+        public string updateProfile(int id_emp, int id_ville, string nom, string pseudo, string prenom, int service, string tel, string password)
+        {
+            if (nom.Equals("") || prenom.Equals("") || service.Equals("") || tel.Equals("") || password.Equals(""))
+            {
+                return "tous les champs sont obligatoire !";
+            }
+            if (valid_tel(tel) == false)
+            {
+                return "le format de telephone n'est pas correct";
+            }
+            SqlConnection connection = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "UPDATE employer SET ID_VILLE=@id_ville,NOM_EMP=@nom,PRENOM_EMP=@prenom,PSEUDO=@pseudo,TEL_EMP=@tel,PASSWORD=@password WHERE ID_EMPLOYER=@id_emp";
+            command.Parameters.AddWithValue("@id_ville", id_ville);
+            command.Parameters.AddWithValue("@nom", nom);
+            command.Parameters.AddWithValue("@prenom", prenom);
+            command.Parameters.AddWithValue("@pseudo", pseudo);
+            command.Parameters.AddWithValue("@tel", tel);
+            command.Parameters.AddWithValue("@password", MD5Hash(password));
+            command.Parameters.AddWithValue("@id_emp", id_emp);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return "succes";
+        }
+       
+        [WebMethod(MessageName = "uploadImage")]
+        public void uploadImage(string source, int emp_id)
+        {
+            string url_image = new Uri(source).AbsolutePath;
+            String ftpurl = "ftp://gestion-conference-fs.com/httpdocs/Conference_Web/Users/" + emp_id + "_" + Path.GetFileName(url_image);
+            String ftpusername = "spotmusic";
+            String ftppassword = "wI$x9a82";
+            using (WebClient client = new WebClient())
+            {
+                NetworkCredential myCred = new NetworkCredential(ftpusername, ftppassword);
+                CredentialCache myCache = new CredentialCache();
+                myCache.Add(new Uri(ftpurl), "Basic", myCred);
+                client.Credentials = myCache;
+                client.UploadFile(ftpurl, "STOR", url_image);
+            }
+        }
+
+        public void saveDB(int id_emp, string source)
+        {
+            SqlConnection connection = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "UPDATE employer SET IMAGE=@image WHERE ID_EMPLOYER=@id";
+            command.Parameters.AddWithValue("@id", id_emp);
+            command.Parameters.AddWithValue("@image", "ftp://2052696_bricole:saber123**@ecinemaroc.co.nf/USERS/" + id_emp + "_" + Path.GetFileName(source));
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+         /***********************************************************getAllVille***********************************************/
+        [WebMethod(MessageName = "getAllVilles")]
+        public DataTable getAllVilles()
+        {
+            SqlConnection con = new SqlConnection(DBConnection.ConnectionString);
+            SqlCommand cmd = new SqlCommand("select NOM_VILLEE from ville ORDER BY ID_VILLE");
+            SqlDataAdapter sda = new SqlDataAdapter();
+            cmd.Connection = con;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            dt.TableName = "Villes";
+            sda.Fill(dt);
+            return dt;
+        }
+        /**********************************************************************************************************************/
+        [WebMethod(MessageName = "GetEmployeJson", Description = "cette methide renvoie Json")]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
         public string GetEmployeJson()
         {
             JavaScriptSerializer ser = new JavaScriptSerializer();
