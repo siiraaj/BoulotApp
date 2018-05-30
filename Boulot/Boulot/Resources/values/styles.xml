@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="MyActionBar"
+         parent="@android:style/Theme.Black.NoTitleBar"
+         />
+
+  <style name="Theme.SplashActivity" parent="android:Theme.Black.NoTitleBar">
+    <item name="android:windowBackground">@drawable/splash</item>
+  </style>
+</resources>
