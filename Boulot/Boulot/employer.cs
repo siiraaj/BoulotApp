@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +19,11 @@ namespace Boulot
 
         private float rating;
 
-        private string nom, prenom, pseudo, tele, password, ville, service;
+        private string nom, prenom, pseudo, tele, password, ville, service, adresse;
 
 
         public employer(int id, string Nom, string Prenom, string vill, string servic,
-            string tel, string imageEmp, float rating)
+            string tel, string imageEmp, string adr, float rating)
         {
             this.Id = id;
             this.nom = Nom;
@@ -33,6 +33,7 @@ namespace Boulot
             this.service = servic;
             this.rating = rating;
             this.tele = tel;
+            this.adresse = adr;
 
 
 
@@ -65,6 +66,19 @@ namespace Boulot
             set
             {
                 nom = value;
+            }
+        }
+
+        public string Adresse
+        {
+            get
+            {
+                return adresse;
+            }
+
+            set
+            {
+                adresse = value;
             }
         }
 
