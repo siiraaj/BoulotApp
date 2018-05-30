@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pr_back">
+    <SearchView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sv" />
+    <Spinner
+        android:spinnerMode="dialog"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/chercheVille"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/BordureNv" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/listEmp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bordure"
+        android:divider="#fbfbfb"
+        android:dividerHeight="10.0sp"
+        android:footerDividersEnabled="true" />
+</LinearLayout>
