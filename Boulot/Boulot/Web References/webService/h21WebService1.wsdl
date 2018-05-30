@@ -15,6 +15,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="Comfirmpassword" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="question" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="indice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="adresse" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -100,6 +101,23 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="getAllServicesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllAdresse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllAdresseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllAdresseResult">
               <s:complexType>
                 <s:sequence>
                   <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
@@ -384,6 +402,12 @@
   <wsdl:message name="getAllServicesSoapOut">
     <wsdl:part name="parameters" element="tns:getAllServicesResponse" />
   </wsdl:message>
+  <wsdl:message name="getAllAdresseSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllAdresse" />
+  </wsdl:message>
+  <wsdl:message name="getAllAdresseSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllAdresseResponse" />
+  </wsdl:message>
   <wsdl:message name="getAllEmployesSoapIn">
     <wsdl:part name="parameters" element="tns:getAllEmployes" />
   </wsdl:message>
@@ -467,6 +491,7 @@
     <wsdl:part name="Comfirmpassword" type="s:string" />
     <wsdl:part name="question" type="s:string" />
     <wsdl:part name="indice" type="s:string" />
+    <wsdl:part name="adresse" type="s:string" />
   </wsdl:message>
   <wsdl:message name="inscriptionHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
@@ -502,6 +527,10 @@
   </wsdl:message>
   <wsdl:message name="getAllServicesHttpGetIn" />
   <wsdl:message name="getAllServicesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getAllAdresseHttpGetIn" />
+  <wsdl:message name="getAllAdresseHttpGetOut">
     <wsdl:part name="Body" element="tns:DataTable" />
   </wsdl:message>
   <wsdl:message name="getAllEmployesHttpGetIn">
@@ -599,6 +628,7 @@
     <wsdl:part name="Comfirmpassword" type="s:string" />
     <wsdl:part name="question" type="s:string" />
     <wsdl:part name="indice" type="s:string" />
+    <wsdl:part name="adresse" type="s:string" />
   </wsdl:message>
   <wsdl:message name="inscriptionHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
@@ -634,6 +664,10 @@
   </wsdl:message>
   <wsdl:message name="getAllServicesHttpPostIn" />
   <wsdl:message name="getAllServicesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="getAllAdresseHttpPostIn" />
+  <wsdl:message name="getAllAdresseHttpPostOut">
     <wsdl:part name="Body" element="tns:DataTable" />
   </wsdl:message>
   <wsdl:message name="getAllEmployesHttpPostIn">
@@ -745,6 +779,10 @@
       <wsdl:input message="tns:getAllServicesSoapIn" />
       <wsdl:output message="tns:getAllServicesSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getAllAdresse">
+      <wsdl:input message="tns:getAllAdresseSoapIn" />
+      <wsdl:output message="tns:getAllAdresseSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="getAllEmployes">
       <wsdl:input message="tns:getAllEmployesSoapIn" />
       <wsdl:output message="tns:getAllEmployesSoapOut" />
@@ -819,6 +857,10 @@
       <wsdl:input message="tns:getAllServicesHttpGetIn" />
       <wsdl:output message="tns:getAllServicesHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="getAllAdresse">
+      <wsdl:input message="tns:getAllAdresseHttpGetIn" />
+      <wsdl:output message="tns:getAllAdresseHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="getAllEmployes">
       <wsdl:input message="tns:getAllEmployesHttpGetIn" />
       <wsdl:output message="tns:getAllEmployesHttpGetOut" />
@@ -892,6 +934,10 @@
     <wsdl:operation name="getAllServices">
       <wsdl:input message="tns:getAllServicesHttpPostIn" />
       <wsdl:output message="tns:getAllServicesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllAdresse">
+      <wsdl:input message="tns:getAllAdresseHttpPostIn" />
+      <wsdl:output message="tns:getAllAdresseHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="getAllEmployes">
       <wsdl:input message="tns:getAllEmployesHttpPostIn" />
@@ -991,6 +1037,15 @@
     </wsdl:operation>
     <wsdl:operation name="getAllServices">
       <soap:operation soapAction="http://tempuri.org/getAllServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllAdresse">
+      <soap:operation soapAction="http://tempuri.org/getAllAdresse" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1163,6 +1218,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getAllAdresse">
+      <soap12:operation soapAction="http://tempuri.org/getAllAdresse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getAllEmployes">
       <soap12:operation soapAction="http://tempuri.org/getAllEmployes" style="document" />
       <wsdl:input>
@@ -1328,6 +1392,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getAllAdresse">
+      <http:operation location="/getAllAdresse" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getAllEmployes">
       <http:operation location="/getAllEmployes" />
       <wsdl:input>
@@ -1482,6 +1555,15 @@
     </wsdl:operation>
     <wsdl:operation name="getAllServices">
       <http:operation location="/getAllServices" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllAdresse">
+      <http:operation location="/getAllAdresse" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

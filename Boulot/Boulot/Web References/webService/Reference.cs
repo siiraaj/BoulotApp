@@ -42,6 +42,8 @@ namespace Boulot.webService {
         
         private System.Threading.SendOrPostCallback getAllServicesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback getAllAdresseOperationCompleted;
+        
         private System.Threading.SendOrPostCallback getAllEmployesOperationCompleted;
         
         private System.Threading.SendOrPostCallback getAllEmployesSerchOperationCompleted;
@@ -123,6 +125,9 @@ namespace Boulot.webService {
         public event getAllServicesCompletedEventHandler getAllServicesCompleted;
         
         /// <remarks/>
+        public event getAllAdresseCompletedEventHandler getAllAdresseCompleted;
+        
+        /// <remarks/>
         public event getAllEmployesCompletedEventHandler getAllEmployesCompleted;
         
         /// <remarks/>
@@ -160,7 +165,7 @@ namespace Boulot.webService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/inscription", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string inscription(int id_ville, string nom, string prenom, int service, string tel, string pseudo, string password, string Comfirmpassword, string question, string indice) {
+        public string inscription(int id_ville, string nom, string prenom, int service, string tel, string pseudo, string password, string Comfirmpassword, string question, string indice, string adresse) {
             object[] results = this.Invoke("inscription", new object[] {
                         id_ville,
                         nom,
@@ -171,17 +176,18 @@ namespace Boulot.webService {
                         password,
                         Comfirmpassword,
                         question,
-                        indice});
+                        indice,
+                        adresse});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void inscriptionAsync(int id_ville, string nom, string prenom, int service, string tel, string pseudo, string password, string Comfirmpassword, string question, string indice) {
-            this.inscriptionAsync(id_ville, nom, prenom, service, tel, pseudo, password, Comfirmpassword, question, indice, null);
+        public void inscriptionAsync(int id_ville, string nom, string prenom, int service, string tel, string pseudo, string password, string Comfirmpassword, string question, string indice, string adresse) {
+            this.inscriptionAsync(id_ville, nom, prenom, service, tel, pseudo, password, Comfirmpassword, question, indice, adresse, null);
         }
         
         /// <remarks/>
-        public void inscriptionAsync(int id_ville, string nom, string prenom, int service, string tel, string pseudo, string password, string Comfirmpassword, string question, string indice, object userState) {
+        public void inscriptionAsync(int id_ville, string nom, string prenom, int service, string tel, string pseudo, string password, string Comfirmpassword, string question, string indice, string adresse, object userState) {
             if ((this.inscriptionOperationCompleted == null)) {
                 this.inscriptionOperationCompleted = new System.Threading.SendOrPostCallback(this.OninscriptionOperationCompleted);
             }
@@ -195,7 +201,8 @@ namespace Boulot.webService {
                         password,
                         Comfirmpassword,
                         question,
-                        indice}, this.inscriptionOperationCompleted, userState);
+                        indice,
+                        adresse}, this.inscriptionOperationCompleted, userState);
         }
         
         private void OninscriptionOperationCompleted(object arg) {
@@ -355,6 +362,33 @@ namespace Boulot.webService {
             if ((this.getAllServicesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.getAllServicesCompleted(this, new getAllServicesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/getAllAdresse", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable getAllAdresse() {
+            object[] results = this.Invoke("getAllAdresse", new object[0]);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void getAllAdresseAsync() {
+            this.getAllAdresseAsync(null);
+        }
+        
+        /// <remarks/>
+        public void getAllAdresseAsync(object userState) {
+            if ((this.getAllAdresseOperationCompleted == null)) {
+                this.getAllAdresseOperationCompleted = new System.Threading.SendOrPostCallback(this.OngetAllAdresseOperationCompleted);
+            }
+            this.InvokeAsync("getAllAdresse", new object[0], this.getAllAdresseOperationCompleted, userState);
+        }
+        
+        private void OngetAllAdresseOperationCompleted(object arg) {
+            if ((this.getAllAdresseCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.getAllAdresseCompleted(this, new getAllAdresseCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -900,6 +934,32 @@ namespace Boulot.webService {
         private object[] results;
         
         internal getAllServicesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void getAllAdresseCompletedEventHandler(object sender, getAllAdresseCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class getAllAdresseCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal getAllAdresseCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
