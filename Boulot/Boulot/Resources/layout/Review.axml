@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="@drawable/review">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/linearLayout1"
+        android:padding="15dp"
+        android:background="@drawable/bb"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="175dp">
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:id="@+id/mailR"
+            android:background="#f3f3f3"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:hint="Email" />
+        <RatingBar
+            android:id="@+id/review"
+            android:progressBackgroundTint="#5272fe"
+            android:progressTint="#ffffd700"
+            android:maxWidth="30dip"
+            android:minHeight="20dip"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="271.5dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/list_selector"
+            android:layout_margin="5dp"
+            android:clickable="true"
+            android:layout_marginRight="5.5dp"
+            android:numStars="5"
+            android:isIndicator="false" />
+        <Button
+            android:text="Envoyer"
+            android:layout_width="match_parent"
+            android:id="@+id/add_scor"
+            android:typeface="normal"
+            android:textStyle="normal"
+            android:textSize="15dp"
+            android:background="@drawable/servicebutton"
+            android:textColor="#080808"
+            android:layout_height="50dp"
+            android:layout_margin="20dp" />
+    </LinearLayout>
+</LinearLayout>

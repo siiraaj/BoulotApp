@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1">
+            <TextView
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout1"
+                android:id="@+id/NomEmp"
+                android:textColor="#350676"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" />
+            <TextView
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout1"
+                android:id="@+id/PreEmp"
+                android:textColor="#350676"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="5dp"
+        android:src="@drawable/Icon"
+        android:layout_alignParentRight="true"
+        android:id="@+id/imgEmp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp" />
+    <RatingBar
+        android:id="@+id/ratingEmp"
+        android:numStars="5"
+        android:progressBackgroundTint="#5272fe"
+        android:progressTint="#ffffd700"
+        android:maxWidth="30dip"
+        android:minHeight="20dip"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp" />
+    
+</RelativeLayout>

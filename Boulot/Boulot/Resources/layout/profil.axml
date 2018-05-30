@@ -10,7 +10,8 @@
         android:id="@+id/header_cover_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/profilhead2" />
     <ImageButton
         android:id="@+id/user_profile_photo"
         android:layout_width="120dp"
@@ -19,17 +20,25 @@
         android:layout_marginTop="120dp"
         android:elevation="5dp"
         android:padding="20dp"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/profill" />
     <RelativeLayout
         android:id="@+id/profile_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header_cover_image"
         android:elevation="4dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="24dp"
+        android:background="@drawable/list_selector">
+      <Button
+          android:id="@+id/phone"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          android:layout_toLeftOf="@+id/drop_down_option_menu"
+          android:background="@drawable/edit" />
       <EditText
           android:id="@+id/txtNom"
-          android:layout_width="269.5dp"
+          android:layout_width="126.5dp"
           android:layout_height="37.0dp"
           android:layout_centerHorizontal="true"
           android:layout_marginTop="30dp"
@@ -59,48 +68,42 @@
           android:clickable="true"
           android:elevation="4dp"
           android:padding="20dp"
-          android:text="Prenom"
+          android:text="Profession"
+          android:drawableLeft="@drawable/u"
           android:soundEffectsEnabled="false"
           android:textColor="#3c3c3c"
+          android:drawableRight="@drawable/edit"
+          android:background="@drawable/list_selector"
           android:id="@+id/txtPrenom" />
-      <TextView
-          android:text="Services"
-          android:textAppearance="?android:attr/textAppearanceMedium"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/textView1"
-          android:textColor="#3c3c3c"
-          android:paddingLeft="10dp" />
-      <Spinner
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/spService1"
-          android:layout_marginLeft="15dp"
-          android:layout_marginRight="15dp" />
-      <TextView
-          android:text="Ville"
-          android:textAppearance="?android:attr/textAppearanceMedium"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/textView2"
-          android:textColor="#3c3c3c"
-          android:layout_marginLeft="10dp" />
-      <Spinner
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/spVille1"
-          android:layout_marginLeft="15dp"
-          android:layout_marginRight="15dp" />
       <EditText
+          android:id="@+id/txtService"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:layout_margin="5dp"
           android:clickable="true"
           android:elevation="4dp"
           android:padding="20dp"
-          android:id="@+id/txtPseeudo"
+          android:drawableLeft="@drawable/jobb"
+          android:soundEffectsEnabled="false"
           android:textColor="#3c3c3c"
-          android:text="Pseudo" />
+          android:drawableRight="@drawable/edit"
+          android:background="@drawable/list_selector"
+          android:text="service" />
+      <EditText
+          android:id="@+id/txtVillee"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="5dp"
+          android:layout_marginBottom="3dp"
+          android:layout_marginTop="3dp"
+          android:background="@drawable/list_selector"
+          android:clickable="true"
+          android:elevation="4dp"
+          android:padding="20dp"
+          android:drawableLeft="@drawable/location2"
+          android:textColor="#3c3c3c"
+          android:drawableRight="@drawable/edit"
+          android:text="ville" />
       <EditText
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
@@ -109,7 +112,9 @@
           android:elevation="4dp"
           android:padding="20dp"
           android:id="@+id/txtPhoone"
+          android:background="@drawable/list_selector"
           android:textColor="#3c3c3c"
+          android:drawableRight="@drawable/edit"
           android:text="Telephone" />
       <EditText
           android:layout_width="fill_parent"
@@ -118,10 +123,11 @@
           android:clickable="true"
           android:elevation="4dp"
           android:padding="20dp"
-          android:id="@+id/txtPass"
+          android:id="@+id/etAdresse"
+          android:background="@drawable/list_selector"
           android:textColor="#3c3c3c"
-          android:hint="Mot de pass"
-          android:password="true" />
+          android:drawableRight="@drawable/edit"
+          android:text="adresse" />
       <Button
           android:layout_alignParentBottom="true"
           android:layout_gravity="center_vertical|center_horizontal"
@@ -129,6 +135,7 @@
           android:layout_width="168.0dp"
           android:layout_height="65dp"
           android:text="Envoyer"
+          android:background="@drawable/borenv"
           android:textColor="#ffffff"
           android:gravity="center"
           android:layout_marginBottom="10dp"

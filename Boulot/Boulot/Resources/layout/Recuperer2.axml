@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/ud9js"
+        android:orientation="vertical"
+        android:paddingTop="120dp">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="290dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical"
+            android:background="@drawable/greybackground"
+            android:layout_marginTop="16dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/registration"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp" />
+            <TextView
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/questionReset"
+                android:gravity="left" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="Reponse"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="30dp"
+                android:id="@+id/answerReset"
+                android:textColor="#303030" />
+            <Button
+                android:layout_width="190dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Confirmer"
+                android:textColor="#fff"
+                android:background="@drawable/servicesback"
+                android:id="@+id/reset" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
